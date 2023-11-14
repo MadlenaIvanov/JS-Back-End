@@ -1,0 +1,48 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/styles/styles.css" />
+		<title>Home Page</title>
+	</head>
+
+	<body>
+		{{#each errorMessages}}
+			<div>
+				<div class="errorContainer">
+					<p>{{this}}</p>
+				</div>
+			</div>
+		{{/each}}
+
+		<div id="wrapper">
+			<header>
+				<nav>
+					<div>
+						<a href="/">Home</a>
+						<a href="/post/dashboard">Dashboard</a>
+						<a href="/post/search">Search</a>
+					</div>
+					{{#if isAuthenticated}}
+						<div class="user">
+							<a href="/post/create">Add Animal</a>
+							<a href="/user/logout">Logout</a>
+						</div>
+					{{else}}
+						<div class="guest">
+							<a href="/user/login">Login</a>
+							<a href="/user/register">Register</a>
+						</div>
+					{{/if}}
+				</nav>
+			</header>
+
+			{{{body}}}
+
+			<footer>
+				<p>@Friendly World</p>
+			</footer>
+		</div>
+	</body>
+</html>
